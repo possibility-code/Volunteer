@@ -1,0 +1,6 @@
+bot:
+  token: //Your bots token
+  prefix: //Bot prefix (used for DM commands)
+  clocking_channel_id: //Channel ID to send clock in/out message to
+  main_server: //Main server ID
+  team_server: //Team server ID
