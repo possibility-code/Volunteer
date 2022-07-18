@@ -1,6 +1,9 @@
 bot:
-  token: //Your bots token
-  prefix: //Bot prefix (used for DM commands)
-  clocking_channel_id: //Channel ID to send clock in/out message to
-  main_server: //Main server ID
-  team_server: //Team server ID
+  token:
+  prefix:
+  clocking_channel_id:
+  hr_channel_id:
+  main_server:
+  team_server:
+  frontlines_server:
+  postgresql_uri_connection_string:
