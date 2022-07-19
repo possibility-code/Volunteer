@@ -96,6 +96,12 @@ class midnight_tasks(commands.Cog):
             # If the user_id matches on that is in the in_progress table, return
             if user_id in in_progress:
                 return
+
+            on_loa = await self.bot.db.execute("SELECT user_id FROM on_loa WHERE user_id = ?", (user_id,))
+            on_loa = await on_loa.fetchone()
+            if on_loa:
+                return
+
             # Else, go ahead and commit the changes which will add 1 day to the users curernt time
             try:
                 await self.bot.db.execute("INSERT INTO need_checkup (user_id, days) VALUES (?,?)", (user_id, 1))

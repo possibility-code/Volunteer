@@ -41,6 +41,10 @@ class loa(commands.GroupCog, name="loa"):
                 # Add and commit changes to the DB, then send a message
                 await self.bot.db.execute("INSERT INTO on_loa (user_id, start_date, end_date, reason) VALUES (?,?,?,?)", (member.id, datetime.date.today(), end_time, reason))
                 await self.bot.db.commit()
+
+                await self.bot.db.execute("DELETE FROM need_checkup WHERE user_id = ?", (member.id,))
+                await self.bot.db.commit()
+
                 embed = discord.Embed(
                     title = f"{member} has been put on LOA!",
                     description = f"This member will be on LOA until {end_time}",
