@@ -6,4 +6,4 @@ bot:
   main_server:
   team_server:
   frontlines_server:
-  postgresql_uri_connection_string:
+  postgresql_uri_connection_string: postgresql://user:password@host:port/dbname
