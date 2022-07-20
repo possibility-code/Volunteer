@@ -20,7 +20,11 @@ async def send_attention_message(self, member, user_id):
         )
     # If we get a TimeoutError, the user did not respond, so we clock them out
     except asyncio.TimeoutError:
-        del self.bot.in_progress[user_id]
+        # If we get a KeyError for the user_id not being in the dict, just pass it
+        try:
+            del self.bot.in_progress[user_id]
+        except KeyError:
+            pass
         await clock_out_user(self.bot, user_id)
         return await member.send("You have been clocked out as you did not react in time!")
     # If the user reacts, we clock them in
